@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    {% load tagger %}
     {{problem_data}}
+
+    {% for prob in problem_data %}
+        <p>{% underscoreTag prob "_id" as id %} {{ id }} {{prob.title}} {{prob.difficulty}}</p>
+    {% endfor %}
 </body>
 </html>
