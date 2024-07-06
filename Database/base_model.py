@@ -27,7 +27,9 @@ class BaseCollection:
         return {key: str(value) if isinstance(value, ObjectId) else value for key, value in data.items()}
         
 
-    def find_all(self):
+    def find_all(self, projection=None):
+        if projection:
+            return self.collection.find({}, projection)
         return self.collection.find()
 
 

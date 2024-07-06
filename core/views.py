@@ -5,11 +5,8 @@ from bson.objectid import ObjectId
 # Create your views here.
 
 
-def all_problems(request):
-    problems = codingProblem.find_by_id('6681610c15be3057592ef349')
-    # problems = codingProblem.find_all()
-    problem_data = {key: str(value) if isinstance(value, ObjectId) else value for key, value in problems.items()}
-    problem_data = json.dumps(problem_data)
+def problems_page(request):
+    problems = codingProblem.find_all({"_id": 1, "title": 1, "difficulty": 1})
     context = {"problem_data": problems}
 
     return render(request, "core/home.html", context)
