@@ -11,7 +11,11 @@ def problems_page(request):
 
     return render(request, "core/problems.html", context)
 
+def problem_detail(request, id):
+    problem = codingProblem.find_by_id(id)
+    context = {"problem_data": problem}
 
+    return render(request, "core/problem_detail.html", context)
 
 def add_problem(request):
     problem = None
