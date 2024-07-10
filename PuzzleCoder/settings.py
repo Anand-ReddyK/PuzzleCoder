@@ -86,6 +86,11 @@ DATABASES = {
     }
 }
 
+MONGO_URL = "mongodb://localhost:27017"
+MONGO_DB = "PuzzleCoderDB"
+MONGO_SESSION_COLLECTION = "sessions"
+
+SESSION_ENGINE = "PuzzleCoder.Database.mongo_session"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
