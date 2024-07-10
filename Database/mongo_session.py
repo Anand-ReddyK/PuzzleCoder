@@ -3,7 +3,7 @@ from django.contrib.sessions.backends.base import SessionBase, CreateError
 from datetime import datetime, timedelta
 from .db_connection import db
 
-class MongoDBSession(SessionBase):
+class SessionStore(SessionBase):
     def __init__(self, session_key=None):
         super().__init__(session_key)
         self.db = db
