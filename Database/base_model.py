@@ -35,7 +35,9 @@ class BaseCollection:
 
     def find_by_id(self, id):
         return self.collection.find_one({"_id": self.id_type(id)})
-
+    
+    def find_one(self, projection):
+        return self.collection.find_one(projection)
 
     def insert(self, data):
         if type(data) is list:

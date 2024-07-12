@@ -1,5 +1,5 @@
-from django.shortcuts import render, HttpResponse
-from .models import codingProblem
+from django.shortcuts import render, HttpResponse, redirect
+from .models import codingProblem, User
 import json
 from bson.objectid import ObjectId
 # Create your views here.
@@ -12,7 +12,7 @@ def problems_page(request):
     return render(request, "core/problems.html", context)
 
 def problem_detail(request, id):
-    problem = codingProblem.find_by_id(id)
+    problem = codingProblem.find_one({"_id": id})
     context = {"problem_data": problem}
 
     return render(request, "core/problem_detail.html", context)
@@ -21,3 +21,33 @@ def add_problem(request):
     problem = None
     a = codingProblem.insert(problem)
     return HttpResponse(f"Data Inserted {str(a)}")
+
+def login_view(request):
+    context = {
+        "page_type": "login"
+    }
+    if request.method == "POST":
+        username = request.POST["username"]
+        user = User.find_one({"username": username})
+        if user:
+            user["_id"] = str(user["_id"])
+            request.session['user'] = user
+            return redirect('problems_page')
+        context["invalid"] = "User does not exist"
+    
+    return render(request, "core/auth.html", context)
+
+def signup_view(request):
+    context = {
+        "page_type": "signup"
+    }
+    if request.method == "POST":
+        username = request.POST["username"]
+        user = User.find_one({"username": username})
+        if not user:
+            User.insert({"username": username})
+            return redirect("problems_page")
+
+        context["invalid"] = "User already exists"
+    
+    return render(request, "core/auth.html", context)
