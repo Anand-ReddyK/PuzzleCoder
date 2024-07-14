@@ -63,3 +63,9 @@ def signup_view(request):
         context["invalid"] = "User already exists"
     
     return render(request, "core/auth.html", context)
+
+def code_view(request):
+    if request.method == "POST":
+        print(request.POST)
+    
+    return HttpResponse("sperrr")
