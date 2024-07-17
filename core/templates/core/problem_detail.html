@@ -176,7 +176,10 @@
         </div>
     </div>
 </div>
-
+<script>
+    var code_submit_url = "{% url 'code' %}";
+    var csrf_token = "{{ csrf_token }}";
+</script>
 <script src="{% static 'core/js/codemirror_editor.js' %}"></script>
 <script src="{% static 'core/js/code_submit.js' %}"></script>
 

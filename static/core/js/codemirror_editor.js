@@ -1,3 +1,4 @@
+var editor;
 document.addEventListener("DOMContentLoaded", function() {
     Split(['#problem-details', '#editor-container'], {
         sizes: [45, 55], /* Adjusted sizes */
@@ -7,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Initialize CodeMirror editor
-    var editor = CodeMirror.fromTextArea(document.getElementById('editor-textarea'), {
+    editor = CodeMirror.fromTextArea(document.getElementById('editor-textarea'), {
         mode: "python",
         lineNumbers: true,
         theme: "material-darker", /* Default theme */

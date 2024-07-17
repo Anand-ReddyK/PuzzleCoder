@@ -15,7 +15,7 @@ document.getElementById("btn-submit").addEventListener("click", function() {
 
 
 function sendCodeToBackend(code, language, type){
-    var url = "/code/";
+    var url = window.location.origin + code_submit_url;
     var data = new URLSearchParams();
     data.append('code', code);
     data.append('language', language);
@@ -25,6 +25,7 @@ function sendCodeToBackend(code, language, type){
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": csrf_token,
             "X-Requested-With": "XMLHttpRequest"
         },
         body: data
