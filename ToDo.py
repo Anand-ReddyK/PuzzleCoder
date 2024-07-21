@@ -21,6 +21,7 @@ TODO: Connect these above collections to get the user data
 ! Code Execution
 TODO: Save the code sent by the user in db under the user id and problem id in a user data collection 
 TODO: Send the code received from the frontend to redis queue
+    * Run redis as a container and expose ports to access the redis queue and pub/sub
 TODO: Let the docker worker containers pick up these tasks
     ? How to let multiple containers interact with the queue
 TODO: Let the containers run the code with give language and test cases
