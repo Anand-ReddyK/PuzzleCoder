@@ -27,9 +27,14 @@ class BaseCollection:
         return {key: str(value) if isinstance(value, ObjectId) else value for key, value in data.items()}
         
 
-    def find_all(self, projection=None):
-        if projection:
+    def find_all(self, projection=None, query=None):
+        if projection and query:
+            return self.collection.find(query, projection)
+        elif projection:
             return self.collection.find({}, projection)
+        elif query:
+            return self.collection.find(query)
+        
         return self.collection.find()
 
 
@@ -49,10 +54,20 @@ class BaseCollection:
         if self.use_custom_id:
             data['_id'] = self.get_next_sequence_value()
         return self.collection.insert_one(data).inserted_id
+    
+    def insert_or_update(self, data, projection):
+        item = self.find_one(projection)
+        if item is not None:
+            return self.update(id=item['_id'], data=data)
+        
+        return self.insert(data)
 
 
-    def update(self, problem_id, data):
-        return self.collection.update_one({"_id": self.id_type(problem_id)}, {"$set": data})
+    def update(self, data, id=None, projection=None):
+        if projection is not None:
+            return self.collection.update_one(projection, {"$set": data})
+        
+        return self.collection.update_one({"_id": self.id_type(id)}, {"$set": data})
 
     def delete(self, id):
         return self.collection.delete_one({"_id": self.id_type(id)})
