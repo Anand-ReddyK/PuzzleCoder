@@ -14,3 +14,9 @@ class User(BaseCollection):
         super().__init__("users")
 
 User = User()
+
+class UserProblemsData(BaseCollection):
+    def __init__(self):
+        super().__init__("userproblemdata")
+
+UserProblemsData = UserProblemsData()
