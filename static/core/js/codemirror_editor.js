@@ -1,4 +1,5 @@
 var editor;
+// console.log(code_to_load.python);
 document.addEventListener("DOMContentLoaded", function() {
     Split(['#problem-details', '#editor-container'], {
         sizes: [45, 55], /* Adjusted sizes */
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Initialize CodeMirror editor
     editor = CodeMirror.fromTextArea(document.getElementById('editor-textarea'), {
-        mode: "python",
+        mode: user_language || "python",
         lineNumbers: true,
         theme: "material-darker", /* Default theme */
         lineWrapping: true,
@@ -17,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
             "Ctrl-Space": "autocomplete"
         }
     });
-
+    editor.setValue(code_to_load[user_language || "python"]);
+    document.getElementById('language').value = user_language || "python";
 
     // Set the height for CodeMirror to avoid horizontal scroll
     editor.setSize("100%", "400px");
@@ -28,10 +30,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle language change
     document.getElementById('language').addEventListener('change', function() {
         var language = this.value;
-        var mode = 'python';
-        if (language === 'javascript') mode = 'javascript';
-        else if (language === 'java') mode = 'text/x-java';
-
+        // var mode = 'python';
+        if (language === 'javascript'){
+            mode = 'javascript';
+            editor.setValue(code_to_load.javascript);
+        }
+        else if (language === 'java'){
+            mode = 'text/x-java';
+            editor.setValue(code_to_load.java);
+        }
+        else if(language === 'python'){
+            mode = 'python';
+            editor.setValue(code_to_load.python);
+        }
         editor.setOption('mode', mode);
     });
 
