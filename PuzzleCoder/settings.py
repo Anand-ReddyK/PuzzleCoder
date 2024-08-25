@@ -86,11 +86,18 @@ DATABASES = {
     }
 }
 
-MONGO_URL = "mongodb://localhost:27017"
+MONGO_URL = "mongodb://host.docker.internal:27017"
+#MONGO_URL = "mongodb://localhost:27017"
 MONGO_DB = "PuzzleCoderDB"
 MONGO_SESSION_COLLECTION = "sessions"
 
 SESSION_ENGINE = "Database.mongo_session"
+
+
+REDIS_HOST = "redis"
+# REDIS_HOST = "localhost"
+REDIS_PORT = 6379
+REDIS_DB = 0
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
