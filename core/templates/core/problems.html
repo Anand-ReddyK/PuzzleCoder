@@ -13,9 +13,17 @@
             <!-- Status -->
             <div class="w-1/4">
               <span
-                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {% if prob.status == 'completed' %} bg-green-100 text-green-800 {% elif prob.status == 'rejected' %} bg-red-100 text-red-800 {% elif prob.status == 'on progress' %} bg-yellow-100 text-yellow-800 {% else %} bg-gray-100 text-gray-800 {% endif %}"
+                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {% if prob.pass_rate == 1 %} bg-green-300 text-green-800 {% elif prob.pass_rate  < 0.5 and prob.pass_rate != -1 %} bg-red-300 text-red-800 {% elif prob.pass_rate >= 0.5 %} bg-yellow-100 text-yellow-800 {% else %} bg-gray-300 text-gray-800 {% endif %}"
               >
-                {{ prob.status }}
+              {% if prob.pass_rate == 1 %}
+                Completed
+              {% elif prob.pass_rate < 0.5 and prob.pass_rate != -1 %}
+                Failed
+              {% elif prob.pass_rate >= 0.5 %}
+                Partial Execution
+              {% else %}
+                Not Visited
+              {% endif %}
               </span>
             </div>
             <!-- Problem --|||||||||||||||||||-->
@@ -39,86 +47,6 @@
           </li>
           {% endfor %}
         </ul>
-      </div>
-    </div>
-    <!-- Filters Box -->
-    <div class="w-1/4 bg-gray-800 shadow-md rounded-lg p-4">
-      <h2 class="text-3xl font-semibold mb-4 text-white">Filters</h2>
-      <!-- Difficulty Filter -->
-      <div class="mb-6">
-        <h3 class="text-lg font-medium mb-2 text-white">Difficulty</h3>
-        <div class="space-y-2">
-          <div>
-            <input
-              type="checkbox"
-              id="easy"
-              name="difficulty"
-              value="Easy"
-              class="mr-2"
-            />
-            <label for="easy" class="text-sm text-gray-300">Easy</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="medium"
-              name="difficulty"
-              value="Medium"
-              class="mr-2"
-            />
-            <label for="medium" class="text-sm text-gray-300">Medium</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="hard"
-              name="difficulty"
-              value="Hard"
-              class="mr-2"
-            />
-            <label for="hard" class="text-sm text-gray-300">Hard</label>
-          </div>
-        </div>
-      </div>
-      <!-- Status Filter -->
-      <div>
-        <h3 class="text-lg font-medium mb-2 text-white">Status</h3>
-        <div class="space-y-2">
-          <div>
-            <input
-              type="checkbox"
-              id="completed"
-              name="status"
-              value="Completed"
-              class="mr-2"
-            />
-            <label for="completed" class="text-sm text-gray-300"
-              >Completed</label
-            >
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="rejected"
-              name="status"
-              value="Rejected"
-              class="mr-2"
-            />
-            <label for="rejected" class="text-sm text-gray-300">Rejected</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="on-progress"
-              name="status"
-              value="On Progress"
-              class="mr-2"
-            />
-            <label for="on-progress" class="text-sm text-gray-300"
-              >On Progress</label
-            >
-          </div>
-        </div>
       </div>
     </div>
   </div>

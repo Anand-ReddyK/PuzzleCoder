@@ -171,16 +171,36 @@
             </div>
             <div id="terminal" class="mt-4">
                 <h3 class="text-lg font-semibold mb-2">Terminal</h3>
-                <div id="output" class="bg-gray-700 p-4 rounded-md text-white"></div>
+                <div id="output" class="bg-gray-700 p-4 rounded-md text-white">
+                    <h4 class="text-lg font-bold mb-4">Test Case Results:</h4>
+                    {% for test_case in problem_data.description.test_cases %}
+                    <div class="mb-4 p-4 rounded-lg border border-gray-500 bg-gray-800">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Test Case {{ forloop.counter }}</span>
+                        </div>
+                        <div class="text-sm">
+                            <p><strong>Input:</strong> <code class="bg-gray-700 p-1 rounded">{{ test_case.input }}</code></p>
+                            <p><strong>Expected Output:</strong> <code class="bg-gray-700 p-1 rounded">{{ test_case.expected_output }}</code></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
+            
         </div>
     </div>
 </div>
+{% underscoreTag problem_data "_id" as id %}
 <script>
-    var code_submit_url = "{% url 'code' %}";
+    var code_submit_url = "{% url 'code' id %}";
+    var code_result_url = "{% url 'code_result'%}";
     var csrf_token = "{{ csrf_token }}";
+    var user_language = "{{ problem_data.user_language }}";
+
+    var code_to_load = '{{ problem_data.run_code|escapejs }}';
+    var code_to_load = JSON.parse(code_to_load);
 </script>
 <script src="{% static 'core/js/codemirror_editor.js' %}"></script>
-<script src="{% static 'core/js/code_submit.js' %}"></script>
+<script src="{% static 'core/js/code_handle.js' %}"></script>
 
 {% endblock %}
