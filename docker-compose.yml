@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - puzzlecoder
+  
+  web:
+    image: puzzlecoder-backend
+    container_name: puzzle_coder
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    networks:
+      - puzzlecoder
+  
+  worker:
+    image: puzzlecoder-worker
+    container_name: worker
+    depends_on:
+      - redis
+    networks:
+      - puzzlecoder
+  
+  scaler:
+    image: puzzlecoder-scaler
+    container_name: scaler
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # to connect to docker inside scaler
+    depends_on:
+      - redis
+    networks:
+      - puzzlecoder
+
+networks:
+  puzzlecoder:
+    driver: overlay
