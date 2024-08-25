@@ -1,0 +1,305 @@
+[{
+  "_id": 1,
+  "title": "Palindrome Number",
+  "description": {
+    "problem": "Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwise.",
+    "examples": [
+      {
+        "input": "x = 121",
+        "output": "true",
+        "description": "121 reads as 121 from left to right and from right to left."
+      },
+      {
+        "input": "x = -121",
+        "output": "false",
+        "description": "-121 reads as 121- from left to right and from right to left."
+      }
+    ],
+    "function_description": {
+      "inputs": [
+        {
+          "name": "x",
+          "type": "int",
+          "description": "An integer."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "Returns `true` if `x` is a palindrome, `false` otherwise."
+      }
+    },
+    "input_format": "An integer x.",
+    "constraints": [
+      {
+        "constraint": "-2^31 <= x <= 2^31 - 1"
+      }
+    ],
+    "sample_input_output": [
+      {
+        "input": "121",
+        "expected_output": "true"
+      }
+    ],
+    "test_cases": [
+      {
+        "input": "121",
+        "expected_output": "true"
+      },
+      {
+        "input": "-121",
+        "expected_output": "false"
+      }
+    ]
+  },
+  "difficulty": "Easy",
+  "run_code": {
+    "python": "import sys\nimport math\nimport collections\nimport itertools\nimport functools\n\ndef is_palindrome(x):\n    # write code here\n\nif __name__ == '__main__':\n    x = int(input())\n    print(is_palindrome(x))",
+    "javascript": "const fs = require('fs');\nconst readline = require('readline');\n\nfunction isPalindrome(x) {\n    // write code here\n}\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.on('line', (input) => {\n    const x = parseInt(input);\n    console.log(isPalindrome(x));\n    rl.close();\n});",
+    "java": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Main {\n    public static boolean isPalindrome(int x) {\n        // write code here\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int x = scanner.nextInt();\n        System.out.println(isPalindrome(x));\n    }\n}"
+  }
+},
+{
+  "_id": 2,
+  "title": "Reverse Integer",
+  "description": {
+    "problem": "Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.",
+    "examples": [
+      {
+        "input": "x = 123",
+        "output": "321",
+        "description": "Reversing 123 gives 321."
+      },
+      {
+        "input": "x = -123",
+        "output": "-321",
+        "description": "Reversing -123 gives -321."
+      }
+    ],
+    "function_description": {
+      "inputs": [
+        {
+          "name": "x",
+          "type": "int",
+          "description": "A signed 32-bit integer."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The reversed integer or 0 if it overflows."
+      }
+    },
+    "input_format": "A signed 32-bit integer x.",
+    "constraints": [
+      {
+        "constraint": "-2^31 <= x <= 2^31 - 1"
+      }
+    ],
+    "sample_input_output": [
+      {
+        "input": "123",
+        "expected_output": "321"
+      }
+    ],
+    "test_cases": [
+      {
+        "input": "123",
+        "expected_output": "321"
+      },
+      {
+        "input": "-123",
+        "expected_output": "-321"
+      }
+    ]
+  },
+  "difficulty": "Medium",
+  "run_code": {
+    "python": "import sys\nimport math\nimport collections\nimport itertools\nimport functools\n\ndef reverse_integer(x):\n    # write code here\n\nif __name__ == '__main__':\n    x = int(input())\n    print(reverse_integer(x))",
+    "javascript": "const fs = require('fs');\nconst readline = require('readline');\n\nfunction reverseInteger(x) {\n    // write code here\n}\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.on('line', (input) => {\n    const x = parseInt(input);\n    console.log(reverseInteger(x));\n    rl.close();\n});",
+    "java": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Main {\n    public static int reverseInteger(int x) {\n        // write code here\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int x = scanner.nextInt();\n        System.out.println(reverseInteger(x));\n    }\n}"
+  }
+},
+{
+  "_id": 3,
+  "title": "Valid Parentheses",
+  "description": {
+    "problem": "Given a string `s` containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+    "examples": [
+      {
+        "input": "s = \"()\"",
+        "output": "true",
+        "description": "The string \"()\" is valid."
+      },
+      {
+        "input": "s = \"([)]\"",
+        "output": "false",
+        "description": "The string \"([)]\" is not valid."
+      }
+    ],
+    "function_description": {
+      "inputs": [
+        {
+          "name": "s",
+          "type": "str",
+          "description": "A string containing just the characters '(', ')', '{', '}', '[' and ']'"
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "Returns `true` if the string is valid, `false` otherwise."
+      }
+    },
+    "input_format": "A string s containing just the characters '(', ')', '{', '}', '[' and ']'",
+    "constraints": [
+      {
+        "constraint": "1 <= s.length <= 10^4"
+      }
+    ],
+    "sample_input_output": [
+      {
+        "input": "\"()\"",
+        "expected_output": "true"
+      }
+    ],
+    "test_cases": [
+      {
+        "input": "\"()\"",
+        "expected_output": "true"
+      },
+      {
+        "input": "\"([)]\"",
+        "expected_output": "false"
+      }
+    ]
+  },
+  "difficulty": "Easy",
+  "run_code": {
+    "python": "import sys\nimport math\nimport collections\nimport itertools\nimport functools\n\ndef is_valid_parentheses(s):\n    # write code here\n\nif __name__ == '__main__':\n    s = input()\n    print(is_valid_parentheses(s))",
+    "javascript": "const fs = require('fs');\nconst readline = require('readline');\n\nfunction isValidParentheses(s) {\n    // write code here\n}\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.on('line', (input) => {\n    const s = input;\n    console.log(isValidParentheses(s));\n    rl.close();\n});",
+    "java": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Main {\n    public static boolean isValidParentheses(String s) {\n        // write code here\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String s = scanner.nextLine();\n        System.out.println(isValidParentheses(s));\n    }\n}"
+  }
+},
+{
+  "_id": 4,
+  "title": "Merge Two Sorted Lists",
+  "description": {
+    "problem": "You are given the heads of two sorted linked lists `list1` and `list2`. Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.",
+    "examples": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "output": "[1,1,2,3,4,4]",
+        "description": "Merging [1,2,4] and [1,3,4] gives [1,1,2,3,4,4]."
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "output": "[]",
+        "description": "Merging two empty lists gives an empty list."
+      }
+    ],
+    "function_description": {
+      "inputs": [
+        {
+          "name": "list1",
+          "type": "ListNode",
+          "description": "The head of the first sorted linked list."
+        },
+        {
+          "name": "list2",
+          "type": "ListNode",
+          "description": "The head of the second sorted linked list."
+        }
+      ],
+      "returns": {
+        "type": "ListNode",
+        "description": "The head of the merged linked list."
+      }
+    },
+    "input_format": "Two linked lists represented by their head nodes.",
+    "constraints": [
+      {
+        "constraint": "The number of nodes in both lists is in the range [0, 50]."
+      }
+    ],
+    "sample_input_output": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "expected_output": "[1,1,2,3,4,4]"
+      }
+    ],
+    "test_cases": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "expected_output": "[1,1,2,3,4,4]"
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "expected_output": "[]"
+      }
+    ]
+  },
+  "difficulty": "Easy",
+  "run_code": {
+    "python": "import sys\nimport math\nimport collections\nimport itertools\nimport functools\n\ndef merge_two_lists(list1, list2):\n    # write code here\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\nif __name__ == '__main__':\n    list1 = ListNode(1, ListNode(2, ListNode(4)))\n    list2 = ListNode(1, ListNode(3, ListNode(4)))\n    merged_list = merge_two_lists(list1, list2)\n    # write code here to print the merged list",
+    "javascript": "const fs = require('fs');\nconst readline = require('readline');\n\nclass ListNode {\n    constructor(val = 0, next = null) {\n        this.val = val;\n        this.next = next;\n    }\n}\n\nfunction mergeTwoLists(list1, list2) {\n    // write code here\n}\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.on('line', (input) => {\n    const list1 = JSON.parse(input);\n    rl.on('line', (input) => {\n        const list2 = JSON.parse(input);\n        const mergedList = mergeTwoLists(list1, list2);\n        // write code here to print the merged list\n        rl.close();\n    });\n});",
+    "java": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Main {\n    public static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int val) { this.val = val; }\n        ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n    }\n\n    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n        // write code here\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        // Read and parse the input linked lists here\n        ListNode list1 = // parsing logic;\n        ListNode list2 = // parsing logic;\n        ListNode mergedList = mergeTwoLists(list1, list2);\n        // write code here to print the merged list\n    }\n}"
+  }
+},
+{
+  "_id": 5,
+  "title": "Climbing Stairs",
+  "description": {
+    "problem": "You are climbing a staircase. It takes `n` steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "2",
+        "description": "There are two ways to climb to the top: 1. 1 step + 1 step 2. 2 steps"
+      },
+      {
+        "input": "n = 3",
+        "output": "3",
+        "description": "There are three ways to climb to the top: 1. 1 step + 1 step + 1 step 2. 1 step + 2 steps 3. 2 steps + 1 step"
+      }
+    ],
+    "function_description": {
+      "inputs": [
+        {
+          "name": "n",
+          "type": "int",
+          "description": "The number of steps to reach the top."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of distinct ways to reach the top."
+      }
+    },
+    "input_format": "An integer n.",
+    "constraints": [
+      {
+        "constraint": "1 <= n <= 45"
+      }
+    ],
+    "sample_input_output": [
+      {
+        "input": "2",
+        "expected_output": "2"
+      }
+    ],
+    "test_cases": [
+      {
+        "input": "2",
+        "expected_output": "2"
+      },
+      {
+        "input": "3",
+        "expected_output": "3"
+      }
+    ]
+  },
+  "difficulty": "Easy",
+  "run_code": {
+    "python": "import sys\nimport math\nimport collections\nimport itertools\nimport functools\n\ndef climb_stairs(n):\n    # write code here\n\nif __name__ == '__main__':\n    n = int(input())\n    print(climb_stairs(n))",
+    "javascript": "const fs = require('fs');\nconst readline = require('readline');\n\nfunction climbStairs(n) {\n    // write code here\n}\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.on('line', (input) => {\n    const n = parseInt(input);\n    console.log(climbStairs(n));\n    rl.close();\n});",
+    "java": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Main {\n    public static int climbStairs(int n) {\n        // write code here\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        System.out.println(climbStairs(n));\n    }\n}"
+  }
+}]
