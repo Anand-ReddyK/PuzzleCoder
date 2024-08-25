@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: puzzlecoder-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: puzzlecoder-backend
+  template:
+    metadata:
+      labels:
+        app: puzzlecoder-backend
+    spec:
+      containers:
+      - name: puzzlecoder-backend
+        image: anandreddyk/puzzlecoder-backend:latest
+        ports:
+        - containerPort: 8000
